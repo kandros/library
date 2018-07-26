@@ -16,6 +16,5 @@ function getAuthorById(db, id) {
 
 module.exports = {
   getAuthors,
-  addLink,
   getAuthorById
 };

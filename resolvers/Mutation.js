@@ -1,4 +1,4 @@
-const {addAuthor, addBook, addLink} = require('../utils');
+const {addAuthor, addBook} = require('../utils');
 
 const mutation = {
   addAuthor: (parent, args, context) => {
@@ -6,9 +6,6 @@ const mutation = {
   },
   addBook: (parent, args, context) => {
     return addBook(context.db, args.title, args.id);
-  },
-  addLink: (parent, args, context) => {
-    return addLink(context.db, args.authorid, args.postid, args.id);
   }
 };
 

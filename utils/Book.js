@@ -36,6 +36,5 @@ function addSingleBook(db, title) {
 module.exports = {
   getAuthorsOfBook,
   getBookById,
-  getBooks,
-  addBook
+  getBooks
 };

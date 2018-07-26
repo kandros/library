@@ -9,6 +9,5 @@ module.exports = {
   getBooks,
   getBookById,
   addAuthor,
-  addBook,
-  addLink
+  addBook
 };
