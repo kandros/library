@@ -10,7 +10,7 @@ function getBooksOfAuthor(db, id) {
 }
 function addAuthor(db, name) {
   const query = `INSERT into authors values ($1, $2) returning *`;
-  const values = [Math.floor(Math.random() * 200), name];
+  const values = [name, Math.floor(Math.random() * 200)];
   const newAuthor = db.query(query, values).then(res => {
     return res.rows[0];
   });

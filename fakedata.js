@@ -1,11 +1,10 @@
 const config = require('./secret.js');
-const connectionString = `postgres://postgres:${config.psw}@localhost/blog-app`;
+const connectionString = `postgres://postgres:${config.psw}@localhost/library`;
 const {Client} = require('pg');
-const {getUsers} = require('./utils');
-const {addPost} = require('./utils');
-const {addUser} = require('./utils');
-const {getPosts} = require('./utils');
-const {addComment} = require('./utils');
+const {addAuthor} = require('./utils');
+const {addBook} = require('./utils');
+const {getAuthors, getBooks} = require('./utils');
+
 var casual = require('casual');
 
 const dbClient = new Client({
@@ -13,28 +12,11 @@ const dbClient = new Client({
 });
 
 dbClient.connect().then(() => {
-  addUser(dbClient, casual.first_name, casual.email, casual.password).then(
-    res => res
-  );
-  getUsers(dbClient)
-    .then(res => {
-      res.forEach(el => {
-        addPost(dbClient, casual.title, casual.text, el.id).then(res => res);
-      });
-    })
-    .catch(err => console.log(err));
+  for (var i = 0; i < 50; i++) {
+    addAuthor(dbClient, casual.first_name).then(res => res);
 
-  getUsers(dbClient)
-    .then(res => {
-      res.forEach(el => {
-        getPosts(dbClient).then(res => {
-          res.forEach(posts => {
-            addComment(dbClient, casual.text, el.id, posts.id).then(res => res);
-          });
-        });
-      });
-    })
-    .catch(err => console.log(err));
+    addBook(dbClient, casual.title)
+      .then(res => res)
+      .catch(err => console.log(err));
+  }
 });
-
-console.log(casual.time((format = 'YYYY-MM-DD')));

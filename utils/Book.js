@@ -24,9 +24,9 @@ function getBookById(db, id) {
   return books;
 }
 
-function addBook(db, title) {
+function addSingleBook(db, title) {
   const query = `INSERT into books values ($1, $2) returning *`;
-  const values = [Math.floor(Math.random() * 200), title];
+  const values = [title, Math.floor(Math.random() * 200)];
   const newBook = db.query(query, values).then(res => {
     return res.rows[0];
   });
