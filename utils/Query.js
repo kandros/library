@@ -5,6 +5,14 @@ function getAuthors(db) {
   });
   return authors;
 }
+function addLink(db, authorid, booksid) {
+  const query = 'insert into bridge (authorid, booksid) values($1,$2)';
+  const values = [authorid, booksid];
+  const authors = db.query(query, values).then(res => {
+    return res.rows;
+  });
+  return authors;
+}
 
 function getAuthorById(db, id) {
   const query = `SELECT * from authors WHERE id=${id}`;
@@ -16,5 +24,6 @@ function getAuthorById(db, id) {
 
 module.exports = {
   getAuthors,
-  getAuthorById
+  getAuthorById,
+  addLink
 };

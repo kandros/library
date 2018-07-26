@@ -25,8 +25,8 @@ function getBookById(db, id) {
 }
 
 function addSingleBook(db, title) {
-  const query = `INSERT into books values ($1, $2) returning *`;
-  const values = [title, Math.floor(Math.random() * 200)];
+  const query = `INSERT into books(title) values ($1) returning *`;
+  const values = [title];
   const newBook = db.query(query, values).then(res => {
     return res.rows[0];
   });
@@ -36,5 +36,6 @@ function addSingleBook(db, title) {
 module.exports = {
   getAuthorsOfBook,
   getBookById,
-  getBooks
+  getBooks,
+  addSingleBook
 };
