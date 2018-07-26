@@ -183,6 +183,10 @@ Sint aut itaque	176
 --
 
 COPY public.bridge (booksid, authorid) FROM stdin;
+1	3
+1	52
+12	52
+100	17
 \.
 
 
