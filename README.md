@@ -12,7 +12,7 @@ Self Study back-end project based on _postgres_ and _graphql_.
 2) You must have _Postgres_ installed and running on your local machine
 3) Use file library.pgsql to import database on your local postgres db
 4) Make sure to replace the connectionString with your db name(in case you've changed it) and your password in `index.js`:
-`const connectionString = `postgres://postgres:your_psw@localhost/your_db_name`;`
+`const connectionString =` `postgres://postgres:your_psw@localhost/your_db_name`;
 
 **In case you have trouble importing dump please follow these rules:**
 1) create a new DB in your postgres account calling library and add the following queries into psql terminal to create new tables inside of your newly created "library" db:
@@ -44,7 +44,7 @@ Self Study back-end project based on _postgres_ and _graphql_.
  
 2) Once you have done with your db structure please open the project folder and go to fakedata.js.
 3) Make sure to replace the connectionString with your db name(in case you've changed it) and your password in:
-`const connectionString = `postgres://postgres:${config.psw}@localhost/library`;` 
+`const connectionString =` `postgres://postgres:${config.psw}@localhost/library`; 
 4) Once you are done run `node fakedata.js` in the terminal to populate your db tables with random data. Be sure all the dependencies for this project have already been installed. 
 
 ## How to run
