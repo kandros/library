@@ -37,7 +37,7 @@ Self Study back-end project based on _postgres_ and _graphql_.
     id SERIAL PRIMARY KEY
     authorid integer REFERENCES authors(id) ON DELETE CASCADE,
     booksid integer REFERENCES books(id) ON DELETE CASCADE,
-  )
+  )`
 ;
 
  -------------------------------------------------------------
