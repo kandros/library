@@ -19,21 +19,21 @@ Self Study back-end project based on _postgres_ and _graphql_.
 
 -- Authors Table ----------------------------------------------
 
-CREATE TABLE authors (
+`CREATE TABLE authors (
     id SERIAL PRIMARY KEY,
     name text
-);
+)`;
 
 -- Books Table ----------------------------------------------
 
-CREATE TABLE books (
+`CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     title text
-);
+)`;
 
 -- Bridge Table ----------------------------------------------
 
-CREATE TABLE bridge( 
+`CREATE TABLE bridge( 
     id SERIAL PRIMARY KEY
     authorid integer REFERENCES authors(id) ON DELETE CASCADE,
     booksid integer REFERENCES books(id) ON DELETE CASCADE,
