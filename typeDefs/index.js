@@ -19,9 +19,18 @@ const typeDefs = gql`
     authors: [Author!]!
   }
 
+  type Bridge {
+    authorid: ID!
+    booksid: ID!
+    id: ID!
+  }
+
   type Mutation {
     addBook(title: String): Book!
     addAuthor(name: String!): Author!
+    addLink(authorid: ID!, booksid: ID!): Bridge!
+    deleteAuthor(id: ID!): Author
+    deleteBook(id: ID!): Book!
   }
 
 `;

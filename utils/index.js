@@ -1,10 +1,11 @@
 const {getAuthors, getAuthorById, addLink} = require('./Query');
-const {getBooksOfAuthor, addAuthor} = require('./Author');
+const {getBooksOfAuthor, addAuthor, deleteAuthor} = require('./Author');
 const {
   getAuthorsOfBook,
   getBookById,
   getBooks,
-  addSingleBook
+  addSingleBook,
+  deleteBook
 } = require('./Book');
 module.exports = {
   getAuthors,
@@ -15,5 +16,7 @@ module.exports = {
   getBookById,
   addAuthor,
   addSingleBook,
-  addLink
+  addLink,
+  deleteBook,
+  deleteAuthor
 };

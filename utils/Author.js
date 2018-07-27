@@ -16,7 +16,17 @@ function addAuthor(db, name) {
   });
   return newAuthor;
 }
+function deleteAuthor(db, id) {
+  const query = `DELETE from authors CASCADE WHERE id=${id}`;
+
+  var authorDeleted = db.query(query).then(res => {
+    console.log(res.rows[0]);
+    return res.rows[0];
+  });
+  return authorDeleted;
+}
 module.exports = {
   getBooksOfAuthor,
-  addAuthor
+  addAuthor,
+  deleteAuthor
 };

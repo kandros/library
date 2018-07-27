@@ -11,17 +11,23 @@ const dbClient = new Client({
   connectionString: connectionString
 });
 
-dbClient.connect().then(() => {
-  for (var i = 0; i < 50; i++) {
-    addAuthor(dbClient, casual.first_name).then(res => res);
+dbClient
+  .connect()
+  .then(() => {
+    for (var i = 0; i < 50; i++) {
+      addAuthor(dbClient, casual.first_name).then(res => res);
 
-    addSingleBook(dbClient, casual.title)
-      .then(res => res)
-      .catch(err => console.log(err));
-    addLink(
-      dbClient,
-      casual.integer((from = 1), (to = 150)),
-      casual.integer((from = 1), (to = 150))
-    );
-  }
-});
+      addSingleBook(dbClient, casual.title)
+        .then(res => res)
+        .catch(err => console.log(err));
+    }
+  })
+  .then(() => {
+    for (var i = 0; i < 50; i++) {
+      addLink(
+        dbClient,
+        casual.integer((from = 1), (to = 150)),
+        casual.integer((from = 1), (to = 150))
+      );
+    }
+  });

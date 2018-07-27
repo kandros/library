@@ -32,10 +32,20 @@ function addSingleBook(db, title) {
   });
   return newBook;
 }
+function deleteBook(db, id) {
+  const query = `DELETE from books CASCADE WHERE id=${id}`;
+
+  var bookDeleter = db.query(query).then(res => {
+    console.log(res.rows[0]);
+    return res.rows[0];
+  });
+  return bookDeleter;
+}
 
 module.exports = {
   getAuthorsOfBook,
   getBookById,
   getBooks,
-  addSingleBook
+  addSingleBook,
+  deleteBook
 };
